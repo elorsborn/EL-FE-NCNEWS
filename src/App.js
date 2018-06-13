@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import "./App.css";
-import Homepage from "./Components/Homepage";
-import Topics from "./Components/Topics";
+import Homepage from "./Components/Homepage/Homepage";
+import Topics from "./Components/Topics/Topics";
 
 class App extends Component {
   render() {
@@ -30,7 +30,7 @@ class App extends Component {
         </div>
 
         <h1>My piece of shit app</h1>
-        <Route path="/topics" component={Topics} />
+        <Route path="/topics/:topic" component={Topics} />
         <Route exact path="/" component={Homepage} />
       </div>
     );

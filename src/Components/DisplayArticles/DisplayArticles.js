@@ -15,7 +15,9 @@ const DisplayArticles = ({ articles }) => {
               <div className="votes">{article.votes}</div>
               <div className="downvote">downvote</div>
               <div className="title">{article.title}</div>
-              <div className="user">Submitted by {article.created_by}</div>
+              <div className="user">
+                Submitted by {article.created_by.username}
+              </div>
               <div className="comments">
                 <a href="/articles/:article_id/comments">
                   {article.comments} Comments

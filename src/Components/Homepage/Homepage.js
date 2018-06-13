@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Homepage.css";
 
-import DisplayArticles from "../DisplayArticles";
+import DisplayArticles from "../DisplayArticles/DisplayArticles";
 
 class Homepage extends Component {
   state = {
@@ -16,7 +16,6 @@ class Homepage extends Component {
   render() {
     return (
       <div>
-        <h2>this is my not that shitty homepage</h2>
         <DisplayArticles articles={this.state.articles} />
       </div>
     );
@@ -24,7 +23,7 @@ class Homepage extends Component {
   fetchData = async query => {
     const {
       data: { articles }
-    } = await axios.get(`https://ro-nc-news.herokuapp.com/api/articles/`);
+    } = await axios.get(`https://elliot-ncnews.herokuapp.com/api/articles/`);
     return articles;
   };
 }
