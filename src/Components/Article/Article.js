@@ -6,21 +6,23 @@ import Vote from "../Voting/Vote";
 class Article extends Component {
   state = {
     article: {
-      votes: 0
+      votes: 0,
+      _id: ""
     }
   };
 
   render() {
     return (
       <section className="article-content">
-        <div className="article-title"> {this.state.article.title} </div>
-        <div className="article-title"> {this.state.article.body} </div>
-        <div>{this.state.article.votes}</div>
         <Vote
           article_id={this.state.article._id}
           updateVote={this.updateVote}
         />
-        <CommentsByArticle article_id={this.state.article._id} />
+        <div>{this.state.article.votes}</div>
+        <div className="article-title"> {this.state.article.title} </div>
+        <div className="article-title"> {this.state.article.body} </div>
+
+        <CommentsByArticle {...this.props} />
       </section>
     );
   }
