@@ -29,7 +29,7 @@ class Topics extends Component {
                 <div className="votes">{article.votes}</div>
                 <div className="downvote">downvote</div>
                 <div className="title">
-                  <Link to={`/article/${article._id}`}>{article.title}</Link>
+                  <Link to={`/articles/${article._id}`}>{article.title}</Link>
                 </div>
                 <div className="user">
                   Submitted by {article.created_by.username}

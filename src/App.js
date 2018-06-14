@@ -29,9 +29,9 @@ class App extends Component {
             <button>Login</button>
           </form>
         </div>
-        <Route path="/topics/:topic" component={Topics} />
+        <Route path="/topics/:topic/" component={Topics} />
         <Route exact path="/" component={Homepage} />
-        <Route path="/article/:article_id" component={Article} />
+        <Route path="/articles/:article_id" component={Article} />
       </div>
     );
   }

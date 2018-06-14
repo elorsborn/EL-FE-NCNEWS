@@ -16,16 +16,17 @@ const DisplayArticles = ({ articles }) => {
               <div className="votes">{article.votes}</div>
               <div className="downvote">downvote</div>
               <div className="title">
-                {/* why article not articles */}
-                <Link to={`/article/${article._id}`}>{article.title}</Link>
+                <Link to={`/articles/${article._id}`}>{article.title}</Link>
               </div>
               <div className="user">
+                {/* <Link to={`users/${username}`}> */}
                 Submitted by {article.created_by.username}
+                {/* </Link> */}
               </div>
               <div className="comments">
-                <a href="/articles/:article_id/comments">
+                <Link to={`/articles/${article._id}/comments`}>
                   {article.comments} Comments
-                </a>
+                </Link>
               </div>
             </div>
           </div>
