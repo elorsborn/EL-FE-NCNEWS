@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 class Topics extends Component {
   state = {
     articles: []
   };
+
   componentDidMount = async () => {
     const { articles } = await this.fetchArticlesbyTopic();
     this.setState({ articles });
@@ -15,6 +17,7 @@ class Topics extends Component {
       this.setState({ articles });
     }
   };
+
   render() {
     return (
       <div>
@@ -25,7 +28,9 @@ class Topics extends Component {
                 <div className="upvote">upvote</div>
                 <div className="votes">{article.votes}</div>
                 <div className="downvote">downvote</div>
-                <div className="title">{article.title}</div>
+                <div className="title">
+                  <Link to={`/article/${article._id}`}>{article.title}</Link>
+                </div>
                 <div className="user">
                   Submitted by {article.created_by.username}
                 </div>

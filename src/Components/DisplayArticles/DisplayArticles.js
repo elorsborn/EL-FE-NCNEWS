@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./DisplayArticles.css";
 
 const DisplayArticles = ({ articles }) => {
@@ -14,7 +15,10 @@ const DisplayArticles = ({ articles }) => {
               <div className="upvote">upvote</div>
               <div className="votes">{article.votes}</div>
               <div className="downvote">downvote</div>
-              <div className="title">{article.title}</div>
+              <div className="title">
+                {/* why article not articles */}
+                <Link to={`/article/${article._id}`}>{article.title}</Link>
+              </div>
               <div className="user">
                 Submitted by {article.created_by.username}
               </div>

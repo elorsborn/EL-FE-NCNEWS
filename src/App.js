@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import "./App.css";
 import Homepage from "./Components/Homepage/Homepage";
 import Topics from "./Components/Topics/Topics";
+import Article from "./Components/Article/Article";
 
 class App extends Component {
   render() {
@@ -28,10 +29,9 @@ class App extends Component {
             <button>Login</button>
           </form>
         </div>
-
-        <h1>My piece of shit app</h1>
         <Route path="/topics/:topic" component={Topics} />
         <Route exact path="/" component={Homepage} />
+        <Route path="/article/:article_id" component={Article} />
       </div>
     );
   }
