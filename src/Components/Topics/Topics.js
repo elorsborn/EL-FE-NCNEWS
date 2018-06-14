@@ -7,27 +7,17 @@ class Topics extends Component {
     articles: []
   };
 
-  componentDidMount = async () => {
-    const { articles } = await this.fetchArticlesbyTopic();
-    this.setState({ articles });
-  };
-  componentDidUpdate = async prevProps => {
-    if (prevProps !== this.props) {
-      const { articles } = await this.fetchArticlesbyTopic();
-      this.setState({ articles });
-    }
-  };
-
   render() {
+    const sortedArticles = [...this.state.articles].sort((a, b) => {
+      return b.votes - a.votes;
+    });
     return (
       <div>
-        {this.state.articles.map((article, i) => {
+        {sortedArticles.map((article, i) => {
           return (
             <div key={i} className="article-card">
               <div>
-                <div className="upvote">upvote</div>
                 <div className="votes">{article.votes}</div>
-                <div className="downvote">downvote</div>
                 <div className="title">
                   <Link to={`/articles/${article._id}`}>{article.title}</Link>
                 </div>
@@ -46,6 +36,17 @@ class Topics extends Component {
       </div>
     );
   }
+  componentDidMount = async () => {
+    const { articles } = await this.fetchArticlesbyTopic();
+    this.setState({ articles });
+  };
+  componentDidUpdate = async prevProps => {
+    if (prevProps !== this.props) {
+      const { articles } = await this.fetchArticlesbyTopic();
+      this.setState({ articles });
+    }
+  };
+
   fetchArticlesbyTopic = async query => {
     const { data } = this.props.match
       ? await axios.get(
