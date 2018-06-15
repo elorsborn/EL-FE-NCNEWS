@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./DisplayArticles.css";
-import Loading from "../Loading/Loading";
 
 class DisplayArticles extends Component {
   render() {
     const sortedArticles = [...this.props.articles].sort((a, b) => {
       return b.votes - a.votes;
     });
-    if (!sortedArticles.length) return <Loading className="Preloader" />;
+    if (!sortedArticles.length) return <div>Loading...</div>;
     return (
       <div className="articles-body">
         {sortedArticles.map((article, i) => {

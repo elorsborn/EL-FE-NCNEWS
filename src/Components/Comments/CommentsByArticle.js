@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Vote from "../Voting/Vote";
-import Loading from "../Loading/Loading";
 
 class CommentsByArticle extends Component {
   state = {
@@ -27,7 +26,7 @@ class CommentsByArticle extends Component {
       return b.votes - a.votes;
     });
 
-    if (!sortedComments.length) return <Loading className="Preloader" />;
+    if (!sortedComments.length) return <div>Loading...</div>;
 
     return (
       <section>

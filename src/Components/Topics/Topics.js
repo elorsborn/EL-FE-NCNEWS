@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Loading from "../Loading/Loading";
 
 class Topics extends Component {
   state = {
@@ -12,7 +11,7 @@ class Topics extends Component {
     const sortedArticles = [...this.state.articles].sort((a, b) => {
       return b.votes - a.votes;
     });
-    if (!sortedArticles.length) return <Loading />;
+    if (!sortedArticles.length) return <div>Loading...</div>;
     return (
       <div>
         {sortedArticles.map((article, i) => {
@@ -38,10 +37,16 @@ class Topics extends Component {
       </div>
     );
   }
+
   componentDidMount = async () => {
-    const { articles } = await this.fetchArticlesbyTopic();
-    this.setState({ articles });
+    try {
+      const { articles } = await this.fetchArticlesbyTopic();
+      this.setState({ articles });
+    } catch (err) {
+      if (err.response.status === 404) this.props.history.push("404");
+    }
   };
+
   componentDidUpdate = async prevProps => {
     if (prevProps !== this.props) {
       const { articles } = await this.fetchArticlesbyTopic();

@@ -28,9 +28,14 @@ class Article extends Component {
   }
 
   componentDidMount = async () => {
-    const { article } = await this.fetchArticleById();
-    this.setState({ article });
+    try {
+      const { article } = await this.fetchArticleById();
+      this.setState({ article });
+    } catch (err) {
+      if (err.response.status === 404) this.props.history.push("404");
+    }
   };
+
   componentDidUpdate = async prevProps => {
     if (prevProps !== this.props) {
       const { article } = await this.fetchArticleById();

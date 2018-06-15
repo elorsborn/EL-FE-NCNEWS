@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 import Homepage from "./Components/Homepage/Homepage";
 import Topics from "./Components/Topics/Topics";
 import Article from "./Components/Article/Article";
-// import { Button, Card, Row, Col } from "react-materialize";
+import Error404 from "./Components/Errors/Error404";
 
 class App extends Component {
   render() {
@@ -12,7 +12,9 @@ class App extends Component {
       <div className="Background">
         <div className="Navbar-container">
           <Link to="/">
-            <div className="Navbar-home">Home</div>
+            <div className="Navbar-home">
+              <div className="Navbar-label">Home</div>
+            </div>
           </Link>
           <div className="Navbar-items">
             <Link to="/topics/football/articles">
@@ -34,9 +36,13 @@ class App extends Component {
             <button>Login</button>
           </form>
         </div> */}
-        <Route exact path="/" component={Homepage} />
-        <Route path="/topics/:topic/articles" component={Topics} />
-        <Route path="/articles/:article_id" component={Article} />
+        <Switch>
+          <Route path="/articles/404" component={Error404} />
+          <Route path="/topics/:topic/404" component={Error404} />
+          <Route exact path="/" component={Homepage} />
+          <Route path="/topics/:topic/articles" component={Topics} />
+          <Route path="/articles/:article_id" component={Article} />
+        </Switch>
       </div>
     );
   }

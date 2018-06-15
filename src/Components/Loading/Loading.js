@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <Row>
       <Col s={12}>
-        <ProgressBar progress={70} />
+        <ProgressBar progress={70} color="blue" />
       </Col>
       <Col s={12}>
         <ProgressBar />
