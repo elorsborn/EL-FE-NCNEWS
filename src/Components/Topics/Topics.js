@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Loading from "../Loading/Loading";
 
 class Topics extends Component {
   state = {
@@ -11,7 +12,7 @@ class Topics extends Component {
     const sortedArticles = [...this.state.articles].sort((a, b) => {
       return b.votes - a.votes;
     });
-    if (!sortedArticles.length) return <div>Loading...</div>;
+    if (!sortedArticles.length) return <Loading />;
     return (
       <div>
         {sortedArticles.map((article, i) => {

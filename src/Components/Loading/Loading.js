@@ -1,17 +1,14 @@
 import React from "react";
-import { Row, Col, Preloader } from "react-materialize";
+import { Row, Col, ProgressBar } from "react-materialize";
 
 const Loading = () => {
   return (
     <Row>
-      <Col s={4}>
-        <Preloader size="big" />
+      <Col s={12}>
+        <ProgressBar progress={70} />
       </Col>
-      <Col s={4}>
-        <Preloader flashing />
-      </Col>
-      <Col s={4}>
-        <Preloader size="small" />
+      <Col s={12}>
+        <ProgressBar />
       </Col>
     </Row>
   );
