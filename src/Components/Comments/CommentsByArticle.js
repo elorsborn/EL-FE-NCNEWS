@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Vote from "../Voting/Vote";
+// import { Button, Card, Row, Col } from "react-materialize";
 
 class CommentsByArticle extends Component {
   state = {
@@ -26,7 +27,8 @@ class CommentsByArticle extends Component {
       return b.votes - a.votes;
     });
 
-    if (!sortedComments.length) return <div>loading</div>;
+    if (!sortedComments.length) return <div>Loading...</div>;
+
     return (
       <section>
         <form>
@@ -42,9 +44,13 @@ class CommentsByArticle extends Component {
               <Vote comment_id={comment._id} updateVote={this.updateVote} />
               <div>{comment.body}</div>
               <div>Submitted by {comment.created_by.username}</div>
-              <button onClick={this.handleDeleteClick.bind(null, comment._id)}>
-                Delete
-              </button>
+              {comment.created_by.username === "tickle122" && (
+                <button
+                  onClick={this.handleDeleteClick.bind(null, comment._id)}
+                >
+                  Delete
+                </button>
+              )}
             </div>
           );
         })}
@@ -95,7 +101,7 @@ class CommentsByArticle extends Component {
   };
 
   handleDeleteClick = async comment_id => {
-    const { data } = await axios.delete(
+    await axios.delete(
       `http://elliot-ncnews.herokuapp.com/api/comments/${comment_id}`
     );
     const newComments = this.state.comments.filter(

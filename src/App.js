@@ -9,19 +9,24 @@ import Article from "./Components/Article/Article";
 class App extends Component {
   render() {
     return (
-      <div>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-        <Link to="/topics/football/articles">
-          <button>Football</button>
-        </Link>
-        <Link to="/topics/cooking/articles">
-          <button>Cooking</button>
-        </Link>
-        <Link to="/topics/coding/articles">
-          <button>Coding</button>
-        </Link>
+      <div className="Background">
+        <div className="Navbar-container">
+          <Link to="/">
+            <div className="Navbar-home">Home</div>
+          </Link>
+          <div className="Navbar-items">
+            <Link to="/topics/football/articles">
+              <div className="Navbar-label">Football</div>
+            </Link>
+            <Link to="/topics/cooking/articles">
+              <div className="Navbar-label">Cooking</div>
+            </Link>
+            <Link to="/topics/coding/articles">
+              <div className="Navbar-label">Coding</div>
+            </Link>
+          </div>
+        </div>
+
         {/* <div>
           <form className="login-form">
             <input type="text" />

@@ -15,7 +15,7 @@ class Homepage extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="main">
         <DisplayArticles articles={this.state.articles} />
       </div>
     );

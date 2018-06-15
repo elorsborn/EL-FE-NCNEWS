@@ -11,6 +11,7 @@ class Topics extends Component {
     const sortedArticles = [...this.state.articles].sort((a, b) => {
       return b.votes - a.votes;
     });
+    if (!sortedArticles.length) return <div>Loading...</div>;
     return (
       <div>
         {sortedArticles.map((article, i) => {
