@@ -8,6 +8,7 @@ class Vote extends Component {
         <button value={"up"} onClick={e => this.handleVoteClick(e)}>
           Vote Up
         </button>
+
         <button value={"down"} onClick={e => this.handleVoteClick(e)}>
           Vote Down
         </button>

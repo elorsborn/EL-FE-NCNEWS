@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Loading from "../Loading/Loading";
+import "./Topics.css";
+
+import { Row } from "react-materialize";
 
 class Topics extends Component {
   state = {
@@ -8,32 +12,37 @@ class Topics extends Component {
   };
 
   render() {
+    console.log(this.state);
     const sortedArticles = [...this.state.articles].sort((a, b) => {
       return b.votes - a.votes;
     });
-    if (!sortedArticles.length) return <div>Loading...</div>;
+    if (!sortedArticles.length) return <Loading />;
+
     return (
-      <div>
-        {sortedArticles.map((article, i) => {
-          return (
-            <div key={i} className="article-card">
-              <div>
-                <div className="votes">{article.votes}</div>
-                <div className="title">
+      <div className="topics-main">
+        <p className="topics-title">
+          {sortedArticles[0].belongs_to.charAt(0).toUpperCase() +
+            sortedArticles[0].belongs_to.slice(1)}
+        </p>
+        <div className="articles-main">
+          {sortedArticles.map((article, i) => {
+            return (
+              <div key={i} className="article-body">
+                <Row className="title">
                   <Link to={`/articles/${article._id}`}>{article.title}</Link>
-                </div>
-                <div className="user">
+                </Row>
+                <Row className="user">
                   Submitted by {article.created_by.username}
-                </div>
-                <div className="comments">
+                </Row>
+                <Row className="comments">
                   <a href="/articles/:article_id/comments">
                     {article.comments} Comments
                   </a>
-                </div>
+                </Row>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     );
   }

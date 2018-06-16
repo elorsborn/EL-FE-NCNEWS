@@ -14,14 +14,13 @@ class Article extends Component {
   render() {
     return (
       <section className="article-content">
+        <div>{this.state.article.votes}</div>
+        <div className="article-title"> {this.state.article.title} </div>
+        <div className="article-title"> {this.state.article.body} </div>
         <Vote
           article_id={this.state.article._id}
           updateVote={this.updateVote}
         />
-        <div>{this.state.article.votes}</div>
-        <div className="article-title"> {this.state.article.title} </div>
-        <div className="article-title"> {this.state.article.body} </div>
-
         <CommentsByArticle {...this.props} />
       </section>
     );

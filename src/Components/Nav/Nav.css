@@ -1,0 +1,30 @@
+.Navbar {
+  background-color: rgb(68, 65, 87);
+}
+
+li a:hover {
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+
+.logo {
+  filter: brightness(0) invert(1);
+  padding: 0.5rem;
+  display: block;
+  max-width: 200px;
+  max-height: 60px;
+  height: auto;
+  width: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    filter: brightness(0) invert(1);
+    padding: 0.6rem;
+    display: block;
+    max-width: 250px;
+    max-height: 50px;
+    height: auto;
+    width: auto;
+  }
+}
