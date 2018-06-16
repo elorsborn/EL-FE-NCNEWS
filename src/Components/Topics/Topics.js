@@ -12,7 +12,6 @@ class Topics extends Component {
   };
 
   render() {
-    console.log(this.state);
     const sortedArticles = [...this.state.articles].sort((a, b) => {
       return b.votes - a.votes;
     });
