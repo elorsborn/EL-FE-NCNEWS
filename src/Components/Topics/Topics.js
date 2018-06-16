@@ -34,9 +34,9 @@ class Topics extends Component {
                   Submitted by {article.created_by.username}
                 </Row>
                 <Row className="comments">
-                  <a href="/articles/:article_id/comments">
+                  <Link to={`/articles/${article._id}`}>
                     {article.comments} Comments
-                  </a>
+                  </Link>
                 </Row>
               </div>
             );
