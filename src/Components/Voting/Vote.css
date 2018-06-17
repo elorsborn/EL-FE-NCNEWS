@@ -1,0 +1,23 @@
+.vote-up {
+  display: inline;
+  font-size: 1.5rem;
+  background-color: rgba(14, 167, 19);
+}
+
+.button-space {
+  padding: 0.2rem;
+  display: inline;
+}
+.vote-down {
+  background-color: rgba(14, 167, 19);
+  font-size: 1.5rem;
+  display: inline;
+}
+
+button.btn:hover {
+  background-color: rgb(10, 106, 13);
+}
+
+button.btn:focus {
+  background-color: rgb(10, 106, 13);
+}

@@ -2,9 +2,20 @@
   background-color: rgb(68, 65, 87);
 }
 
+a.link {
+  color: rgba(245, 245, 245, 0.68);
+}
+
+a.link.active {
+  color: white;
+}
+
+li:hover {
+  background-color: rgb(45, 43, 58);
+}
+
 li a:hover {
-  font-size: 1.1rem;
-  text-decoration: underline;
+  color: white;
 }
 
 .logo {
@@ -17,6 +28,17 @@ li a:hover {
   width: auto;
 }
 
+@media only screen and (max-width: 991px) {
+  .logo {
+    filter: brightness(0) invert(1);
+    padding: 0.5rem;
+    display: block;
+    max-width: 250px;
+    max-height: 50px;
+    height: auto;
+    width: auto;
+  }
+}
 @media only screen and (max-width: 600px) {
   .logo {
     filter: brightness(0) invert(1);
@@ -26,5 +48,8 @@ li a:hover {
     max-height: 50px;
     height: auto;
     width: auto;
+  }
+  .side-nav {
+    background-color: rgb(68, 65, 87);
   }
 }

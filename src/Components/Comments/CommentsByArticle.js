@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Vote from "../Voting/Vote";
 import Loading from "../Loading/Loading";
+import "./CommentsByArticle.css";
+import { Button, Input } from "react-materialize";
 
 class CommentsByArticle extends Component {
   state = {
@@ -30,27 +32,39 @@ class CommentsByArticle extends Component {
     if (!sortedComments.length) return <Loading />;
 
     return (
-      <section>
-        <form>
-          <input onChange={this.handleInput} value={this.state.commentInput} />
-          <button className="button" type="Submit" onClick={this.postComment}>
-            Submit your comment
-          </button>
+      <section className="comments-section">
+        <form className="form-container">
+          <Input
+            className="submit-container"
+            placeholder="Please enter your comment..."
+            onChange={this.handleInput}
+            value={this.state.commentInput}
+          />
+          <Button
+            className="submit-button"
+            type="Submit"
+            onClick={this.postComment}
+          >
+            Submit
+          </Button>
         </form>
         {sortedComments.map((comment, i) => {
           return (
-            <div key={i}>
-              <div>Votes: {comment.votes}</div>
-              <Vote comment_id={comment._id} updateVote={this.updateVote} />
-              <div>{comment.body}</div>
-              <div>Submitted by {comment.created_by.username}</div>
+            <div className="comments-main" key={i}>
+              <div className="comment-body">{comment.body}</div>
+              <div className="comment-votes">{comment.votes} likes</div>
+              <div className="comment-username">
+                Submitted by {comment.created_by.username}
+              </div>
               {comment.created_by.username === "tickle122" && (
-                <button
+                <Button
+                  className="delete-button"
                   onClick={this.handleDeleteClick.bind(null, comment._id)}
                 >
                   Delete
-                </button>
+                </Button>
               )}
+              <Vote comment_id={comment._id} updateVote={this.updateVote} />
             </div>
           );
         })}

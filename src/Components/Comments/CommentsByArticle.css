@@ -1,0 +1,71 @@
+.submit-container {
+  color: white;
+  padding: 2em;
+  /* height: auto;
+  width: auto; */
+}
+
+.input-field input[type="text"] {
+  padding-left: 0.5em;
+}
+
+.input-field input[type="text"]:focus,
+.input-field input[type="text"]:hover {
+  background-color: rgb(54, 52, 69);
+  border-bottom: 1px solid rgba(14, 167, 19);
+  box-shadow: 0 1px 0 0 rgba(14, 167, 19);
+  border-radius: 0.5rem;
+  padding-left: 0.5em;
+}
+
+.submit-button {
+  background-color: rgba(14, 167, 19);
+}
+
+.submit-button:hover {
+  background-color: rgb(10, 106, 13);
+}
+
+.form-container {
+  padding-bottom: 2rem;
+}
+
+.comments-main {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: solid rgba(14, 167, 19, 0.208);
+}
+.comment-body {
+  font-size: 1.1rem;
+  color: rgba(245, 245, 245, 0.68);
+}
+
+.comment-votes {
+  display: inline-block;
+  color: rgba(14, 167, 19, 0.735);
+}
+.comment-username {
+  color: rgba(245, 245, 245, 0.434);
+}
+
+.delete-button {
+  background-color: rgb(68, 65, 87);
+}
+
+button.btn.delete-button:hover {
+  background-color: rgb(30, 28, 38);
+}
+
+button.btn.delete-button:focus {
+  background-color: rgb(68, 65, 87);
+}
+
+@media only screen and (max-width: 600px) {
+  .comment-body {
+    font-size: 1rem;
+  }
+  .delete-button {
+    height: auto;
+    max-width: 100%;
+  }
+}

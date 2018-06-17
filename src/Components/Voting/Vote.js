@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Button } from "react-materialize";
+import "./Vote.css";
 
 class Vote extends Component {
   render() {
     return (
-      <div>
-        <button value={"up"} onClick={e => this.handleVoteClick(e)}>
-          Vote Up
-        </button>
-
-        <button value={"down"} onClick={e => this.handleVoteClick(e)}>
-          Vote Down
-        </button>
+      <div className="buttons">
+        <Button
+          className="vote-up"
+          value={"up"}
+          onClick={e => this.handleVoteClick(e)}
+        >
+          +
+        </Button>
+        <p className="button-space" />
+        <Button
+          className="vote-down"
+          value={"down"}
+          onClick={e => this.handleVoteClick(e)}
+        >
+          -
+        </Button>
       </div>
     );
   }

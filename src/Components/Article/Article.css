@@ -1,0 +1,28 @@
+section {
+  padding: 2rem;
+}
+
+.s-article-title {
+  color: white;
+  font-size: 1.5rem;
+  display: inline;
+}
+
+.s-article-body {
+  color: rgba(245, 245, 245, 0.68);
+  font-size: 1.2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.3rem;
+}
+
+.s-article-votes {
+  padding-left: 0.2rem;
+  display: inline-block;
+  color: rgba(14, 167, 19);
+}
+
+@media only screen and (max-width: 600px) {
+  .s-article-body {
+    font-size: 1rem;
+  }
+}

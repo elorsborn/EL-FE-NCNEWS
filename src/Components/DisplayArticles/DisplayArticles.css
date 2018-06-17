@@ -10,12 +10,18 @@
   padding-top: 1rem;
 }
 
+.row.title {
+  font-size: 1.1rem;
+}
+
+.row.user {
+  font-size: 0.9rem;
+}
 a {
   color: rgba(14, 167, 19);
 }
 
 .articles-main a:hover {
-  font-size: 1.1rem;
   text-decoration: underline;
 }
 
