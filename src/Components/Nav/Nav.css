@@ -17,6 +17,9 @@ li:hover {
 li a:hover {
   color: white;
 }
+.side-nav {
+  background-color: rgb(68, 65, 87);
+}
 
 .logo {
   filter: brightness(0) invert(1);
@@ -48,8 +51,5 @@ li a:hover {
     max-height: 50px;
     height: auto;
     width: auto;
-  }
-  .side-nav {
-    background-color: rgb(68, 65, 87);
   }
 }

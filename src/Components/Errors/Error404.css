@@ -1,0 +1,15 @@
+.Error-container {
+  padding: 5rem;
+  text-align: center;
+}
+
+.Error-title {
+  color: rgba(14, 167, 19);
+  font-size: 4rem;
+  border-bottom: solid rgba(14, 167, 19, 0.208);
+}
+
+.Error-message {
+  color: rgba(14, 167, 19);
+  font-size: 1.2rem;
+}
