@@ -30,7 +30,7 @@ The app can now be fed data by making asynchronous calls to the previously built
 
 **UI**
 
-The user has access to topic routes and the main page from the top navigation bar. This performs responsively on mobile and tablet devices.
+The user has access to topic routes and the main page from the top navigation bar. This performs responsively on mobile and tablet devices and becomes a side nav. The logo also acts as a home route.
 
 By clicking on articles the user is transferred to the article page. Here they may use buttons to vote and delete comments only they made. Currently the user posts as user **tickle122**.
 
