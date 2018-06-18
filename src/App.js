@@ -18,6 +18,7 @@ class App extends Component {
           <Route exact path="/" component={Homepage} />
           <Route path="/topics/:topic/articles" component={Topics} />
           <Route path="/articles/:article_id" component={Article} />
+          <Route path="/" component={Error404} />
         </Switch>
       </div>
     );

@@ -35,6 +35,7 @@ class CommentsByArticle extends Component {
       <section className="comments-section">
         <form className="form-container">
           <Input
+            required="true"
             className="submit-container"
             placeholder="Please enter your comment..."
             onChange={this.handleInput}
