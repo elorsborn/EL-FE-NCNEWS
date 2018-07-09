@@ -2,7 +2,6 @@ import React from "react";
 import "./Error404.css";
 
 const Error404 = props => {
-  console.log(props);
   if (props.match.path === "/")
     return (
       <div className="Error-container">
