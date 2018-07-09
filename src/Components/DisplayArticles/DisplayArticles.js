@@ -11,24 +11,27 @@ class DisplayArticles extends Component {
     });
     if (!sortedArticles.length) return <Loading />;
     return (
-      <div className="articles-main">
-        {sortedArticles.map((article, i) => {
-          return (
-            <div key={i} className="article-body">
-              <Row className="title">
-                <Link to={`/articles/${article._id}`}>{article.title}</Link>
-              </Row>
-              <Row className="user">
-                Submitted by {article.created_by.username}
-              </Row>
-              <Row className="comments">
-                <Link to={`/articles/${article._id}`}>
-                  {article.comments} Comments
-                </Link>
-              </Row>
-            </div>
-          );
-        })}
+      <div className="topics-main">
+        <p className="topics-title">General</p>
+        <div className="articles-main">
+          {sortedArticles.map((article, i) => {
+            return (
+              <div key={i} className="article-body">
+                <Row className="title">
+                  <Link to={`/articles/${article._id}`}>{article.title}</Link>
+                </Row>
+                <Row className="user">
+                  Submitted by {article.created_by.username}
+                </Row>
+                <Row className="comments">
+                  <Link to={`/articles/${article._id}`}>
+                    {article.comments} Comments
+                  </Link>
+                </Row>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

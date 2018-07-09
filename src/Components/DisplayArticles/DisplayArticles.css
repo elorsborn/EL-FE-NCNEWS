@@ -1,12 +1,9 @@
 .articles-main {
   padding: 2rem;
 }
-/* .item:nth-child(4n-7) {
-  background-color:green;
-} */
+
 .article-body {
   border-top: solid rgba(14, 167, 19, 0.208);
-  /* background-color: rgb(45, 43, 58); */
   padding-top: 1rem;
 }
 
