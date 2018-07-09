@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Vote from "../Voting/Vote";
-import Loading from "../Loading/Loading";
 import "./CommentsByArticle.css";
 import { Button, Input } from "react-materialize";
+import moment from "moment";
 
 class CommentsByArticle extends Component {
   state = {
@@ -25,11 +25,10 @@ class CommentsByArticle extends Component {
   };
 
   render() {
+    console.log(this.state.comments);
     const sortedComments = [...this.state.comments].sort((a, b) => {
-      return b.votes - a.votes;
+      return b.created_at - a.created_at;
     });
-
-    if (!sortedComments.length) return <Loading />;
 
     return (
       <section className="comments-section">
@@ -55,7 +54,8 @@ class CommentsByArticle extends Component {
               <div className="comment-body">{comment.body}</div>
               <div className="comment-votes">{comment.votes} likes</div>
               <div className="comment-username">
-                Submitted by {comment.created_by.username}
+                Submitted by {comment.created_by.username}{" "}
+                {moment(comment.created_at).fromNow()}
               </div>
               {comment.created_by.username === "tickle122" && (
                 <Button

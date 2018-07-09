@@ -16,18 +16,14 @@ const Error404 = props => {
     return (
       <div className="Error-container">
         <div className="Error-title">404</div>
-        <p className="Error-message">
-          Sorry, we can't find the page you're looking for.
-        </p>
+        <p className="Error-message">Sorry, that article doesn't exist.</p>
       </div>
     );
   if (props.match.path === "/topics/:topic/404")
     return (
       <div className="Error-container">
         <div className="Error-title">404</div>
-        <p className="Error-message">
-          Sorry, we can't find the page you're looking for.
-        </p>
+        <p className="Error-message">Sorry, that topic doesn't exist.</p>
       </div>
     );
 };

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import CommentsByArticle from "../Comments/CommentsByArticle";
 import Vote from "../Voting/Vote";
+import Loading from "../Loading/Loading";
 import "./Article.css";
 class Article extends Component {
   state = {
@@ -12,6 +13,7 @@ class Article extends Component {
   };
 
   render() {
+    if (!this.state.article.title) return <Loading />;
     return (
       <section className="s-article-main">
         <div className="s-article-contents">

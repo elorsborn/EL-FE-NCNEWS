@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-import "./Homepage.css";
+import * as api from "../../api";
 
 import DisplayArticles from "../DisplayArticles/DisplayArticles";
 
@@ -10,9 +9,10 @@ class Homepage extends Component {
   };
 
   componentDidMount = async () => {
-    const articles = await this.fetchData();
+    const articles = await api.fetchData();
     this.setState({ articles });
   };
+
   render() {
     return (
       <div className="homepage-main">
@@ -21,12 +21,6 @@ class Homepage extends Component {
       </div>
     );
   }
-  fetchData = async query => {
-    const {
-      data: { articles }
-    } = await axios.get(`https://elliot-ncnews.herokuapp.com/api/articles/`);
-    return articles;
-  };
 }
 
 export default Homepage;
