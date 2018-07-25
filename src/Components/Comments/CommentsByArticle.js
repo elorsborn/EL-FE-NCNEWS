@@ -10,6 +10,16 @@ class CommentsByArticle extends Component {
     commentInput: "",
     comments: []
   };
+
+  fetchCommentsByArticle = async () => {
+    const { data } = await axios.get(
+      `https://elliot-ncnews.herokuapp.com/api/articles/${
+        this.props.match.params.article_id
+      }/comments/`
+    );
+    return data;
+  };
+
   componentDidMount = async () => {
     const data = await this.fetchCommentsByArticle();
     this.setState({ comments: data.comments });
@@ -47,9 +57,9 @@ class CommentsByArticle extends Component {
             Submit
           </Button>
         </form>
-        {sortedComments.map((comment, i) => {
+        {sortedComments.map(comment => {
           return (
-            <div className="comments-main" key={i}>
+            <div className="comments-main" key={comment._id}>
               <div className="comment-body">{comment.body}</div>
               <div className="comment-votes">{comment.votes} likes</div>
               <div className="comment-username">
@@ -73,15 +83,6 @@ class CommentsByArticle extends Component {
       </section>
     );
   }
-
-  fetchCommentsByArticle = async () => {
-    const { data } = await axios.get(
-      `https://elliot-ncnews.herokuapp.com/api/articles/${
-        this.props.match.params.article_id
-      }/comments/`
-    );
-    return data;
-  };
 
   updateVote = (direction, id) => {
     const { comments } = this.state;

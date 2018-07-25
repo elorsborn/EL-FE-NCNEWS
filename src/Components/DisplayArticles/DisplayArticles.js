@@ -14,9 +14,9 @@ class DisplayArticles extends Component {
       <div className="topics-main">
         <p className="topics-title">General</p>
         <div className="articles-main">
-          {sortedArticles.map((article, i) => {
+          {sortedArticles.map(article => {
             return (
-              <div key={i} className="article-body">
+              <div key={article._id} className="article-body">
                 <Row className="title">
                   <Link to={`/articles/${article._id}`}>{article.title}</Link>
                 </Row>

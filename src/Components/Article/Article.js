@@ -4,35 +4,11 @@ import CommentsByArticle from "../Comments/CommentsByArticle";
 import Vote from "../Voting/Vote";
 import Loading from "../Loading/Loading";
 import "./Article.css";
+
 class Article extends Component {
   state = {
-    article: {
-      votes: 0,
-      _id: ""
-    }
+    article: {}
   };
-
-  render() {
-    if (!this.state.article.title) return <Loading />;
-    return (
-      <section className="s-article-main">
-        <div className="s-article-contents">
-          <div className="s-article-title"> {this.state.article.title} </div>
-          <div className="s-article-votes">
-            {this.state.article.votes} likes
-          </div>
-          <div className="s-article-body"> {this.state.article.body} </div>
-
-          <Vote
-            article_id={this.state.article._id}
-            updateVote={this.updateVote}
-          />
-        </div>
-
-        <CommentsByArticle {...this.props} />
-      </section>
-    );
-  }
 
   componentDidMount = async () => {
     try {
@@ -60,6 +36,28 @@ class Article extends Component {
       : await axios.get(`https://elliot-ncnews.herokuapp.com/api/articles/`);
     return data;
   };
+
+  render() {
+    if (!this.state.article.title) return <Loading />;
+    return (
+      <section className="s-article-main">
+        <div className="s-article-contents">
+          <div className="s-article-title"> {this.state.article.title} </div>
+          <div className="s-article-votes">
+            {this.state.article.votes} likes
+          </div>
+          <div className="s-article-body"> {this.state.article.body} </div>
+
+          <Vote
+            article_id={this.state.article._id}
+            updateVote={this.updateVote}
+          />
+        </div>
+
+        <CommentsByArticle {...this.props} />
+      </section>
+    );
+  }
 
   updateVote = direction => {
     const { article } = this.state;

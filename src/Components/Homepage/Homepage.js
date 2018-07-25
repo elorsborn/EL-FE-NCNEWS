@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as api from "../../api";
-
 import DisplayArticles from "../DisplayArticles/DisplayArticles";
 
 class Homepage extends Component {
@@ -9,14 +8,13 @@ class Homepage extends Component {
   };
 
   componentDidMount = async () => {
-    const articles = await api.fetchData();
+    const articles = await api.fetchArticles();
     this.setState({ articles });
   };
 
   render() {
     return (
       <div className="homepage-main">
-        <header />
         <DisplayArticles articles={this.state.articles} />
       </div>
     );

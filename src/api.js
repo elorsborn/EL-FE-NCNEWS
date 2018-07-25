@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export const fetchData = async query => {
+const url = "https://elliot-ncnews.herokuapp.com/api";
+
+export const fetchArticles = async query => {
   const {
     data: { articles }
-  } = await axios.get(`https://elliot-ncnews.herokuapp.com/api/articles/`);
+  } = await axios.get(`${url}/articles/`);
   return articles;
 };

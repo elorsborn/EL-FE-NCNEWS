@@ -12,8 +12,6 @@ class App extends Component {
       <div className="app-main">
         <Nav />
         <Switch>
-          <Route path="/articles/404" component={Error404} />
-          <Route path="/topics/:topic/404" component={Error404} />
           <Route exact path="/" component={Homepage} />
           <Route path="/topics/:topic/articles" component={Topics} />
           <Route path="/articles/:article_id" component={Article} />
