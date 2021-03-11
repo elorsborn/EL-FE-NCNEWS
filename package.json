@@ -13,7 +13,7 @@
     "merge": "^1.2.1",
     "moment": "^2.22.2",
     "react": "^16.4.0",
-    "react-dev-utils": "^9.0.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.8.6",
     "react-materialize": "^2.2.1",
     "react-router-dom": "^4.3.1",
